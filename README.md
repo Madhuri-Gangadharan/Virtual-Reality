@@ -1,5 +1,22 @@
 # Virtual-Reality
 
+
+## Sea View House
+
+![Overview](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/VR-Project1.gif)
+
+
+#### Can Operate Door and includes vaccum cleaner
+
+![Door](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/Screen%20Shot%202020-10-04%20at%209.37.33%20PM.png)
+
+#### Video can be played on TV
+![TV](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/Screen%20Shot%202020-10-04%20at%209.48.31%20PM.png)
+
+#### 
+
+![Piano](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/Screen%20Shot%202020-10-04%20at%209.38.21%20PM.png)
+
 ## Models
 
 * Sofa - https://sketchfab.com/3d-models/sofa-566030e0a303435889fffa77503354a1
