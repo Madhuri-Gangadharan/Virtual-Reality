@@ -5,8 +5,42 @@
 
 ![Overview](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/VR-Project1.gif)
 
+#### Vaccum cleaner 
 
-#### Can Operate Door and includes vaccum cleaner
+```
+<a-entity id="vaccumid">
+             <a-cylinder color="#000000" height="0.6" radius="0.6">
+                <a-animation id="rotblackid" attribute="rotation"
+                       dur="10000"
+                       to="0 360 0"
+                       repeat="indefinite">
+                </a-animation>
+                <a-animation id="posblackid" attribute="position"
+                       dur="10000"
+                       from="-12 0 0"
+                       to="10 0 0"
+                       from="-12 0 4"
+                       to="10 0 4"
+                       repeat="indefinite" direction="alternate">
+                </a-animation>
+             </a-cylinder>
+             <a-cylinder color="#808080" height="0.6" radius="0.4">
+                <a-animation id="rotgreyid" attribute="rotation"
+                       dur="10000"
+                       to="0 360 0"
+                       repeat="indefinite" >
+                </a-animation>
+                <a-animation  id="posgreyid" attribute="position"
+                       dur="10000"
+                       from="-12 0 0"
+                       to="10 0 0"
+                       repeat="indefinite" direction="alternate">
+                </a-animation>
+             </a-cylinder>
+            
+             </a-entity>
+   
+ ```           
 
 ![Door](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/Screen%20Shot%202020-10-04%20at%209.37.33%20PM.png)
 
@@ -38,4 +72,4 @@
 * [3D Warehouse](https://3dwarehouse.sketchup.com/)
 * [Sketchfab](https://sketchfab.com/feed)
 * [Google Poly](https://poly.google.com/)
-* [Virtual Reality - Project 1 Demo](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/index.html)
+* [Virtual Reality - Project 1 Demo Video](https://youtu.be/8ck8pKfPnTg)
