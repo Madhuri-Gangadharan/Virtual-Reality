@@ -13,9 +13,9 @@
 #### Video can be played on TV
 ![TV](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/Screen%20Shot%202020-10-04%20at%209.48.31%20PM.png)
 
-#### 
+#### Pleasant sea view from home
 
-![Piano](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/Screen%20Shot%202020-10-04%20at%209.38.21%20PM.png)
+![Sea view](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/screenshots/Screen%20Shot%202020-10-04%20at%209.36.43%20PM.png)
 
 ## Models
 
