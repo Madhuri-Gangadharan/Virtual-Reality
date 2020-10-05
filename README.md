@@ -31,3 +31,11 @@
 * Computer Table - https://sketchfab.com/3d-models/low-poly-gaming-desk-6f1bc394de704e488d44e77134f23993
 * Computer Chair - https://sketchfab.com/3d-models/swivel-chair-181e274c519f4ca8805127ac547a2b89
 
+
+## References
+
+* [A-frame](https://aframe.io/)
+* [3D Warehouse](https://3dwarehouse.sketchup.com/)
+* [Sketchfab](https://sketchfab.com/feed)
+* [Google Poly](https://poly.google.com/)
+* [Virtual Reality - Project 1 Demo](https://github.com/Madhuri-Gangadharan/Virtual-Reality/blob/main/Virtual%20Reality%20-%20Project%201/index.html)
