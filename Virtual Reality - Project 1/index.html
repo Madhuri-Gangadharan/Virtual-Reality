@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Virtual Reality - Project 1</title>
+        <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script>
+            
+            AFRAME.registerComponent('audiohandler', {
+              init:function() {
+                 let playing = false;
+                 let audio = document.querySelector("#pianotrack");
+                 this.el.addEventListener('click', () => {
+                      if(!playing) {
+                          audio.play();
+                       } else {
+                          audio.pause();
+                          audio.currentTime = 0;
+                       }
+                       playing = !playing;
+                 });
+              }
+            })
+            
+            AFRAME.registerComponent('video-handler', {
+              init:function() {
+                 let playing = false;
+                 let vid = document.querySelector("#pokemon");
+                 this.el.addEventListener('click', () => {
+                      if(!playing) {
+                           vid.play();
+                       } else {
+                          vid.pause();
+                       }
+                       playing = !playing;
+                 });
+              }
+            })
+            // Set up the component to handle turning on and off the main lights.
+            AFRAME.registerComponent('toggle-main-lights', {
+                init: function() {
+                    var state = true;
+                    var self = this.el;
+                    self.addEventListener('click', function(evt) {
+                        var newIntensity;
+                        if (state) {
+                            newIntensity = 0;
+                            state = false;
+                            document.querySelector("#Lever").emit("lightOff");
+                        } else {
+                            newIntensity = 0.75;
+                            state = true;
+                            document.querySelector("#Lever").emit("lightOn")
+                        }
+
+                        var lights = document.querySelectorAll(".MainLighting");
+                        for (var i = 0; i < lights.length; i++) {
+                            lights[i].setAttribute("light", {intensity: newIntensity}, false);
+                        }
+                    });
+                }
+            });
+
+            // Set up the component to handle turning on and off the TV screen.
+            AFRAME.registerComponent("tv-screen", {
+                init: function() {
+                    var on = false;
+                    var self = this.el;
+                    self.addEventListener("click", () =>{
+                        var newMaterial;
+                        var newLighting;
+                        if (on) {
+                            newMaterial = {shader: "standard", color : "black"};
+                            newLighting = {intensity: "0"};
+                            on = false;
+                        } else {
+                            newMaterial = {shader: "flat", src: "#pokemon"};
+                            newLighting = {type: "point", intensity: "0.3", distance: "10"};
+                            on = true;
+                        }
+                        self.setAttribute("material", newMaterial, true);
+                        self.setAttribute("light", newLighting, false);
+                        document.querySelector("#pokemon").muted = !on;
+                    });
+                }
+            });
+
+            // Set up the component to handle opening and closing the door.
+            AFRAME.registerComponent('door-toggle', {
+                init: function() {
+                    var open = false;
+                    var self = this.el;
+                    let audiodoor = document.querySelector("#masksong");
+                    self.addEventListener('click', () => {
+                        if (open) {
+                            audiodoor.play();
+                            open = false;
+                            self.emit("doorClosing");
+                        } else {
+                            audiodoor.pause();
+                            open = true;
+                            self.emit("doorOpening");
+                        }
+                    })
+                }
+            });
+
+            // Set up component to handle turning on and off the desk lamp light.
+            AFRAME.registerComponent("desk-lamp-toggle", {
+                init: function() {
+                    var self = this.el;
+                    self.addEventListener("click", () =>{
+                        var newLighting;
+                            on = true;
+                            newLighting = {intensity: "0.6"};
+                            newLighting={color:"blue"}
+
+                        self.setAttribute("light", newLighting, true);
+                    })
+                }
+            })
+                                          
+//            function vaccumon()
+//		   {
+//			var light = document.querySelector('#vaccumid');
+//             var arrpos=["-12 0 1","25 0 4", "25 0 8","-12 0 11"];
+//            var endpos=["12 0 1","-12 0 4", "-12 0 8","12 0 11"];
+//               
+//			var isOn = light.getAttribute('intensity');
+//			var i =0;
+//            for (i = 0; i < 4; i++) { 
+//                         pbid.setAttribute("from",arrpos[i]);
+//                         pbid.setAttribute("to",endpos[i]);
+//                         self.emit("vaccumbegin");             
+//            }
+//			
+//		   }
+                
+        </script>
+    </head>
+    <body>
+        <a-scene >
+            <a-entity light="type: ambient; intensity: 0.01"></a-entity>
+
+            <a-assets >
+                <img id="sky" src="images/Ocean.jpg">
+                <img id="floor" src="images/carpet.jpg">
+                <img id="rug" src="images/rug.jpeg">
+                <img id="wallnorth" src="images/wallnorth.jpeg">
+                <img id="walleast" src="images/walleast.jpeg">
+                <img id="wallsouth" src="images/wallsouth.jpg">
+                <img id="wallpaint" src="images/wallpaint.jpg">
+                <img id="door" src="images/Door.jpg">
+                <img id="knob" src="images/knob.jpg">
+                <img id="mask" src="images/mask.jpg">
+                <audio id="pianotrack" src="audio/piano.mp3" ></audio>
+                <audio id="masksong" src="audio/mask.mpeg" ></audio>
+                <a-asset-item id="dining_table" src="assets/dining_table/scene.gltf"/>
+                <a-asset-item id="table" src="assets/table/scene.gltf"/>
+                <a-asset-item id="beach" src="assets/beach/scene.gltf"/>
+                <a-asset-item id="robot" src="assets/small_robot/scene.gltf"/>
+                <a-asset-item id="tv" src="assets/TV/scene.gltf"/>
+                <a-asset-item id="sofa" src="assets/sofa/scene.gltf"/>
+                <a-asset-item id="piano" src="assets/grand_piano/scene.gltf"/>
+                <a-asset-item id="computertable" src="assets/computer_desk/scene.gltf"/>
+                <a-asset-item id="computerchair" src="assets/comp_chair/scene.gltf"/>
+                <a-asset-item id="ceiling_light" src="assets/ceiling_light.gltf"/>
+                <a-asset-item id="chair" src="assets/chair.gltf"/>
+                <a-asset-item id="pool_table" src="assets/pool_table.gltf"/>
+                <a-asset-item id="bookshelf" src="assets/bookshelf/scene.gltf"/>
+                <a-asset-item id="antitable" src="assets/antique_table/scene.gltf"/>
+                <a-asset-item id="lamp" src="assets/lamp.gltf"/>
+                <a-asset-item id="clock" src="assets/clock/scene.gltf"/>
+                <a-asset-item id="cup" src="assets/cup.gltf"/>
+                <a-asset-item id="mirror" src="assets/mirror_table/scene.gltf"/>
+                <a-asset-item id="santitizerid" src="assets/sanitizer_bottle/scene.gltf"/>
+                <a-asset-item id="maskid" src="assets/surgical_mask/scene.gltf"/>
+                <a-asset-item id="modem" src="assets/modem/scene.gltf"/>
+                <a-asset-item id="vase" src="assets/vase/scene.gltf"/>
+                
+                <video id="pokemon" src="vids/pokemon.mp4" autoplay="true" loop="true"/>
+            </a-assets>
+
+            <a-sky  src="#sky" color="#FFFFFF"></a-sky>
+            <a-entity position="0 0 0">
+                <a-camera universal-controls>
+                    <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015;
+                              radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
+                    <a-cursor></a-cursor>
+                </a-camera>
+            </a-entity>
+
+            <!-- Light Switch -->
+            <a-entity toggle-main-lights class="intersectable" position="-13.5 1.5 9.9">
+<!--                <a-text value="Click to Toggle Light" align="center" width="6" position="0 1 -1" color="blue" rotation="0 180 0"></a-text>-->
+                <a-entity geometry="primitive: box; depth: 0.1; height: 0.5; width: 0.25" material="color: lightgrey"></a-entity>
+                <a-entity id="Lever" geometry="primitive: box; depth: 0.3; height: 0.1; width: 0.1" material="color: white" rotation="45 0 0">
+                    <a-animation attribute="rotation" begin="lightOn" from="-45 0 0" to="45 0 0" dur="500"></a-animation>
+                    <a-animation attirbute="rotation" begin="lightOff" from="45 0 0" to="-45 0 0" dur="500"></a-animation>
+                </a-entity>
+            </a-entity>
+            
+             <!-- Grass Outside-->
+            <a-entity id="grassid" geometry="primitive: box; depth:25 ; height: 0.1; width: 40" position="0 0 0" material="src: url(images/grass.jpg); repeat: 500 500; metalness: 0; roughness: 1"></a-entity>
+
+            <!--Floor -->
+            <a-entity geometry="primitive:box; depth: 20; height:0.2; width: 30" position="0 0 0" material="src:#floor ; repeat: 30 20; metalness: 0; roughness: 1"></a-entity>
+
+            <!--Ceiling -->
+            <a-entity geometry="primitive:box; depth: 20; height:0.1; width: 30" position="0 10 0" material="src: url(images/ceiling.jpg); repeat: 10 15; metalness: 0; roughness: 1"></a-entity>
+
+            <!--North Wall-->
+            <a-entity geometry="primitive: box; depth: 0.2; height:10; width: 30" position="0 5 10" material="src: #wallsouth; repeat: 30 10; metalness: 0; roughness: 1"></a-entity>
+            <a-entity id="wallid" position="0 5 10">
+                <a-gltf-model src="#clock" scale="1 1 1" rotation="0 0 0"></a-gltf-model>
+            </a-entity>
+
+            <!--East Wall-->
+            <a-entity geometry="primitive: box; depth: 17.5; height: 1.25; width: 0.2" position="15 9.375 0" material="src:#walleast; repeat: 17.5 1.25; metalness: 0; roughness: 1"></a-entity>
+            <a-entity geometry="primitive: box; depth: 17.5; height: 1.25; width: 0.2" position="15 0.625 0" material="src: #walleast; repeat: 17.5 1.25; metalness: 0; roughness: 1"></a-entity>
+            <a-entity geometry="primitive: box; depth: 1.25; height: 10; width: 0.2" position="15 5 9.375" material="src:#walleast; repeat: 1.25 10; metalness: 0; roughness: 1"></a-entity>
+            <a-entity geometry="primitive: box; depth: 1.25; height: 10; width: 0.2" position="15 5 -9.375" material="src:#walleast; repeat: 1.25 10; metalness: 0; roughness: 1"></a-entity>
+            <!--Window in East Wall -->
+            <a-entity geometry="primitive: box; depth: 17.5; height: 7.5; width: 0.1" position="15 5 0" material="src: #walleast; repeat: 15 7.5; opacity: 0.3; transparent: true; metalness: 0.1"></a-entity>
+            <!-- West Wall-->
+            <a-entity geometry="primitive: box; depth: 15; height: 10; width: 0.2" position="-15 5 -2.5" material="src: #walleast; repeat: 15 10; metalness: 0; roughness: 1"></a-entity>
+            <a-entity geometry="primitive: box; depth: 2; height: 10; width: 0.2" position="-15 5 9" material="src: #walleast; repeat: 2 10; metalness: 0; roughness: 1"></a-entity>
+            <a-entity geometry="primitive: box; depth: 3; height: 5; width: 0.2" position="-15 7.5 6.5" material="src: #walleast; repeat: 3 5; metalness: 0; roughness: 1"></a-entity>
+
+            <!--South Wall-->
+            <a-entity geometry="primitive: box; depth: 0.2; height:10; width: 30" position="0 5 -10" material="src: #wallsouth; repeat: 30 10; metalness: 0; roughness: 1"></a-entity>
+
+           
+            <!-- TV -->
+            <a-entity id="tvid" position="0 1 -9" rotation="0 90 0">
+             <a-text value="Click to Toggle Television" align="center" width="6" position="0 4 0" color="black" rotation="0 90 0"  ></a-text>
+                <a-gltf-model src="#tv" scale="1.5 1.5 1.5"></a-gltf-model>
+                <a-box material="src:#pokemon" class="intersectable"  geometry="primitive: box; depth: 0.01; height: 1.5; width: 3" material="color: black" position="-2 1.19 0.1" rotation="0 90 0"  video-handler></a-box>
+            </a-entity>
+
+            <!-- Sofa -->
+            <a-entity  id="sofaid" position="-2 0 -3" rotation="0 180 0" color="##FFFF00" >
+                <a-gltf-model src="#sofa" scale="0.03 0.03 0.03" ></a-gltf-model>
+            </a-entity>
+            
+            <!-- Table -->
+            <a-entity  id="tableid" position="0 0 9" rotation="0 180 0" color="##FFFF00" >
+                <a-gltf-model src="#table" scale="0.2 0.2 0.2" ></a-gltf-model>
+            </a-entity>
+            
+            <!-- Modem -->
+            <a-entity  id="modemid" position="0 1.3 8.8" rotation="0 180 0" color="#FFFF00" >
+                <a-gltf-model src="#modem" scale="0.002 0.002 0.002" ></a-gltf-model>
+            </a-entity>
+            
+             <!-- Desk Lamp -->
+            <a-entity desk-lamp-toggle class="intersectable" position="-1 1.3 8.8" light="type: point; intensity: 0; color:blue; distance: 15">
+                <a-text value="Click to Toggle Light" align="center" width="6" position="-1 1.8 8.8" color="blue"></a-text>
+                <a-gltf-model src="#lamp" scale="0.02 0.02 0.02"></a-gltf-model>
+            </a-entity>
+            
+            <!-- Vase -->
+            <a-entity  id="vaseid" position="1 1.3 8.8" rotation="0 90 0" color="##FFFF00" >
+                <a-gltf-model src="#vase" scale="0.05 0.05 0.05" ></a-gltf-model>
+            </a-entity>
+
+            <!-- computer Table -->
+            <a-entity rotation="0 0 0" position="9 1 -8">
+                <a-gltf-model src="#computertable" scale="0.50 0.50 0.50" ></a-gltf-model>
+            </a-entity>
+            
+             <!-- computer chair -->
+            <a-entity  id="chairid" rotation="0 180 0" position="9 1.1 -9">
+                <a-gltf-model src="#computerchair" scale="0.12 0.12 0.12" ></a-gltf-model>
+            </a-entity>
+            
+            <!-- Piano -->
+            <a-entity audiohandler position="11 0 -2" rotation="0 280 0">
+                <a-gltf-model src="#piano" scale="0.1 0.1 0.1"></a-gltf-model>
+            </a-entity>
+
+            <!-- Ceiling Lights -->
+           <a-entity position="-5 3 0">
+                <a-entity class="MainLighting" light="type: point; intensity: 0.75; distance: 50" position="0 2 0"></a-entity>
+                <a-gltf-model src="#ceiling_light" scale="25 25 25"></a-gltf-model>
+            </a-entity>
+
+            <a-entity position="5 3 0">
+                <a-entity class="MainLighting" light="type: point; intensity: 0.75; distance: 50" position="0 2 0"></a-entity>
+                <a-gltf-model src="#ceiling_light" scale="25 25 25"></a-gltf-model>
+            </a-entity>
+
+            <!-- Dining Table -->
+            <a-entity  id="dining_id" position="10 -26 -23">
+                <a-gltf-model src="#dining_table" scale="1 1 1"></a-gltf-model>
+            </a-entity>
+
+
+            <!-- Book Shelf -->
+            <a-entity id="deskid" position="-11.7 0 -9" rotation="0 0 0">
+                <a-gltf-model src="#bookshelf" scale="0.3 0.3 0.3"></a-gltf-model>
+            </a-entity>
+            
+             <!-- Mirror Table-->
+            <a-entity id="mirrorid" position="-10 0 -9" rotation="0 0 0">
+                <a-gltf-model src="#mirror" scale="0.05 0.07 0.05"></a-gltf-model>
+            </a-entity>
+ 
+             <!-- antique table -->
+            <a-entity id="antitableid" position="-14 0 2" rotation="0 0 0">
+                <a-gltf-model src="#antitable" scale="0.06 0.07 0.06"></a-gltf-model>
+            </a-entity>
+            
+              <!--Vaccum -->
+             <a-entity id="vaccumid">
+             <a-cylinder color="#000000" height="0.6" radius="0.6">
+                <a-animation id="rotblackid" attribute="rotation"
+                       dur="10000"
+                       to="0 360 0"
+                       repeat="indefinite">
+                </a-animation>
+                <a-animation id="posblackid" attribute="position"
+                       dur="10000"
+                       from="-12 0 0"
+                       to="10 0 0"
+                       from="-12 0 4"
+                       to="10 0 4"
+                       repeat="indefinite" direction="alternate">
+                </a-animation>
+             </a-cylinder>
+             <a-cylinder color="#808080" height="0.6" radius="0.4">
+                <a-animation id="rotgreyid" attribute="rotation"
+                       dur="10000"
+                       to="0 360 0"
+                       repeat="indefinite" >
+                </a-animation>
+                <a-animation  id="posgreyid" attribute="position"
+                       dur="10000"
+                       from="-12 0 0"
+                       to="10 0 0"
+                       repeat="indefinite" direction="alternate">
+                </a-animation>
+             </a-cylinder>
+            
+             </a-entity>
+            
+            <!-- sanitizer bottle -->
+            <a-entity id="santitizerid" position="-14 1.55 2" rotation="0 0 0">
+                <a-gltf-model src="#santitizerid" scale="0.05 0.05 0.05"></a-gltf-model>
+            </a-entity>
+
+             <a-entity position="-14 1.55 2.5" rotation="0 0 90">
+                  <a-entity geometry="primitive: box; depth: 0.2; height: 0.4; width: 0.5" material="src: #mask"></a-entity>
+             </a-entity> 
+
+            <a-text value="Click to Open/Close Door" align="center" width="6" position="-13.5 2.5 7" rotation="0 90 0" color="white"></a-text>
+            <!--             Door -->
+            <a-entity door-toggle class="intersectable" position="-15 2.5 8" rotation="0 0 0">
+                <a-entity geometry="primitive: box; depth: 3; height: 5; width: 0.1" material="src:#door" position="0 0 -1.5"></a-entity>
+                <a-entity geometry="primitive: sphere; radius: 0.25" material="src:#knob" position="0 0 -2.5"></a-entity>
+                <a-animation attribute="rotation" begin="doorOpening" from="0 0 0" to="0 90 0" dur="50000"></a-animation>
+                <a-animation attribute="rotation" begin="doorClosing" from="0 90 0" to="0 0 0" dur="50000"></a-animation>
+            </a-entity>
+
+            <!-- RUG -->
+            <a-entity geometry="primitive: box; depth: 4; height: 0.02; width: 5" position="0 0.2 -6" material="src:#rug; repeat: 5 6; roughness: 1; metalness: 0"></a-entity>
+
+    
+        </a-scene>
+    </body>
+</html>

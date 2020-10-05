@@ -1,0 +1,442 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 528,
+      "max": [
+        1,
+        1,
+        0.17000000178813934
+      ],
+      "min": [
+        -1,
+        -1,
+        -0.15000000596046448
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 6336,
+      "componentType": 5126,
+      "count": 528,
+      "max": [
+        0.96592593193054199,
+        0.96592593193054199,
+        1
+      ],
+      "min": [
+        -0.96592593193054199,
+        -0.96592593193054199,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 1074,
+      "max": [
+        527
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 12672,
+      "componentType": 5126,
+      "count": 306,
+      "max": [
+        0.89999997615814209,
+        0.89999997615814209,
+        0.14407999813556671
+      ],
+      "min": [
+        -0.89999997615814209,
+        -0.89999997615814209,
+        0.079350002110004425
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 16344,
+      "componentType": 5126,
+      "count": 306,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 4296,
+      "componentType": 5125,
+      "count": 498,
+      "max": [
+        305
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 20016,
+      "componentType": 5126,
+      "count": 24,
+      "max": [
+        0.5,
+        0.019999999552965164,
+        0.019999999552965164
+      ],
+      "min": [
+        -0.5,
+        -0.019999999552965164,
+        -0.019999999552965164
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 20304,
+      "componentType": 5126,
+      "count": 24,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 6288,
+      "componentType": 5125,
+      "count": 36,
+      "max": [
+        23
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 20592,
+      "componentType": 5126,
+      "count": 24,
+      "max": [
+        0.5,
+        0.019999999552965164,
+        0.019999999552965164
+      ],
+      "min": [
+        -0.5,
+        -0.019999999552965164,
+        -0.019999999552965164
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 20880,
+      "componentType": 5126,
+      "count": 24,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 6432,
+      "componentType": 5125,
+      "count": 36,
+      "max": [
+        23
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "generator": "Sketchfab (OSG glTF plugin)",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 6576,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 21168,
+      "byteOffset": 6576,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 27744,
+      "uri": "clock.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "ClockValueMaterial",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0374098681,
+          0.0374098681,
+          0.0374098681,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "ClockMaterial",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Clock_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Clock_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "ClockArm_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6
+          },
+          "indices": 8,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "ClockArm.001_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 10,
+            "POSITION": 9
+          },
+          "indices": 11,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3,
+        7,
+        10
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "Clock"
+    },
+    {
+      "children": [
+        5,
+        6
+      ],
+      "name": "Geode"
+    },
+    {
+      "mesh": 0,
+      "name": "Clock_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Clock_1"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        0.81583000000000006,
+        0.23857,
+        0,
+        0,
+        -0.28067000000000003,
+        0.95981000000000005,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -0.37487000000000009,
+        -0.10962000000000002,
+        0.16410000000000002,
+        1
+      ],
+      "name": "ClockArm"
+    },
+    {
+      "children": [
+        9
+      ],
+      "name": "Geode"
+    },
+    {
+      "mesh": 2,
+      "name": "ClockArm_0"
+    },
+    {
+      "children": [
+        11
+      ],
+      "matrix": [
+        0.47649000000000002,
+        0.48513000000000001,
+        0,
+        0,
+        -0.71343000000000001,
+        0.70073000000000008,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0.23242000000000002,
+        0.2321,
+        0.16410000000000002,
+        1
+      ],
+      "name": "ClockArm.001"
+    },
+    {
+      "children": [
+        12
+      ],
+      "name": "Geode"
+    },
+    {
+      "mesh": 3,
+      "name": "ClockArm.001_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
+
